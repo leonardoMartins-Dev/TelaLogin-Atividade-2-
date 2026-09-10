@@ -11,10 +11,11 @@
 <body>
 <div class="register-container">
     <div class="register-image-logo-container">
-        <img th:src="@{/images/teste.jpeg}" alt="Logo">
+        <canvas id="canvas3d"></canvas>
     </div>
     <div class="register-form">
         <form th:action="@{/register}" method="post" class="register-form">
+            <img th:src="@{/images/teste.png}" alt="Logo" class="register-logo">
             <h4 class="register-title">Registro</h4>
 
             <label for="nome">Nome</label>
@@ -51,6 +52,26 @@
         </p>
     </div>
 </div>
+
+<script type="module">
+    import { Application } from 'https://unpkg.com/@splinetool/runtime@latest/build/runtime.js';
+
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+    app.load('https://prod.spline.design/8Z61gEOQoC1du56j/scene.splinecode');
+
+    window.addEventListener('mousemove', (e) => {
+        const syntheticEvent = new PointerEvent('pointermove', {
+            clientX: e.clientX,
+            clientY: e.clientY,
+            bubbles: true,
+            cancelable: true,
+            pointerId: 1,
+            pointerType: 'mouse'
+        });
+        canvas.dispatchEvent(syntheticEvent);
+    });
+</script>
 </body>
 
 </html>
