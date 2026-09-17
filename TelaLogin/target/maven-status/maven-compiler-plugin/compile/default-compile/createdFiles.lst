@@ -1,1 +1,10 @@
+com/example/TelaLogin/service/SendEmailService.class
+com/example/TelaLogin/config/UserConfig.class
+com/example/TelaLogin/config/SecurityConfig.class
+com/example/TelaLogin/exception/SendEmailException.class
+com/example/TelaLogin/application/SecureLoginPUCApplication.class
+com/example/TelaLogin/service/PasswordRecoveryService.class
+com/example/TelaLogin/exception/GlobalExceptionHandler.class
 com/example/TelaLogin/controller/SecureLoginController.class
+com/example/TelaLogin/service/UserService.class
+com/example/TelaLogin/service/PasswordRecoveryService$RecoveryToken.class
