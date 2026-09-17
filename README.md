@@ -1,7 +1,7 @@
 # Projeto SecureLoginPUC
 
 ## Descrição
-O SecureLoginPUC é um projeto de aplicação web que implementa um sistema de login seguro utilizando Spring Boot e Spring Security. O objetivo é permitir a autenticação de usuários, diferenciando entre usuários comuns e administradores, e garantindo o acesso apropriado às páginas da aplicação.
+O TelaLogin é um projeto de aplicação web que implementa um sistema de login seguro utilizando Spring Boot e Spring Security. O objetivo é permitir a autenticação de usuários, diferenciando entre usuários comuns e administradores, e garantindo o acesso apropriado às páginas da aplicação.
 
 ## Estrutura do Projeto
 
@@ -109,13 +109,15 @@ A interface gráfica permite ao usuário inserir seus dados de login e, após a 
 
 ### Captura de Tela
 
-- **Login**: A página de login possui campos para inserir o nome de usuário e a senha. Ela  também exibe o logo da PUC Minas, proporcionando uma identificação visual clara da instituição. Abaixo do formulário de login, existem links para os usuários que ainda não possuem cadastro, direcionando-os para a página de registro, e para aqueles que esqueceram a senha, levando-os à página de recuperação de senha.
+- **Login**: A página de login possui campos para inserir o nome de usuário e a senha. Abaixo do formulário de login, existem links para os usuários que ainda não possuem cadastro, direcionando-os para a página de registro, e para aqueles que esqueceram a senha, levando-os à página de recuperação de senha.
 
-| <img src="https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC/imgs/login_v2.png" alt="Login" width="1000"/> |
+![alt text](<Captura de Tela 2026-09-14 às 21.28.58.png>)
+
 |:----------------------------------------------------:|
 |                        Login                         |
 
-| <img src="https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC/imgs/registro_v2.png" alt="Registro" width="1000"/> |
+![alt text](<Captura de Tela 2026-09-14 às 21.29.26.png>)
+
 |:----------------------------------------------------------:|
 |                          Registro                          |
 
@@ -151,5 +153,7 @@ http://localhost:8080/register
 
 http://localhost:8080/recoverpassword
 
-## Licença
-Este projeto está licenciado sob a MIT License.
+
+# Como rodar
+cd TelaLogin           
+mvn spring-boot:run

@@ -2,3 +2,8 @@
 /Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/config/SecurityConfig.java
 /Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/config/UserConfig.java
 /Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/controller/SecureLoginController.java
+/Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/exception/GlobalExceptionHandler.java
+/Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/exception/SendEmailException.java
+/Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/service/PasswordRecoveryService.java
+/Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/service/SendEmailService.java
+/Users/leonardomartinsmacedo/Desktop/DIAW/TelaLogin-Atividade-2-/TelaLogin/src/main/java/com/example/TelaLogin/service/UserService.java
