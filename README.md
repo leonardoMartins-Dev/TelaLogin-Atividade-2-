@@ -42,7 +42,7 @@ SecureLoginPUC
 
 ```properties
 spring.application.name=SecureLoginPUC
-app.user.username=joao
+app.user.username=leo
 app.user.password=4321
 app.admin.username=admin
 app.admin.password=1234
