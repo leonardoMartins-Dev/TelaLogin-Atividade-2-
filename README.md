@@ -198,11 +198,11 @@ A interface gráfica permite ao usuário inserir seus dados de login e, após a 
 |:----------------------------------------------------:|
 |                        Login                         |
 
-| <img src="[https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC_3/imgs/Register_v2.png"](https://github.com/leonardoMartins-Dev/TelaLogin-Atividade-2-/blob/main/Captura%20de%20Tela%202026-09-14%20%C3%A0s%2021.29.26.png)" alt="Register" width="1000"/> |
+| <img src="Captura de Tela 2026-09-14 às 21.29.26.png" alt="Register" width="1000"/> |
 |:-------------------------------------------------------:|
 |                        Register                         |
 
-| <img src="https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC_3/imgs/Email.png" alt="Recover" width="1000"/> |
+
 |:---------------------------------------------------------------:|
 |                        Recover Password                         |
 
