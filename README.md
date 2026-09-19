@@ -1,51 +1,125 @@
-# Projeto SecureLoginPUC
+# Projeto SecureLogin
 
 ## Descrição
-O TelaLogin é um projeto de aplicação web que implementa um sistema de login seguro utilizando Spring Boot e Spring Security. O objetivo é permitir a autenticação de usuários, diferenciando entre usuários comuns e administradores, e garantindo o acesso apropriado às páginas da aplicação.
+O SecureLogin é um projeto de aplicação web que implementa um sistema de login seguro utilizando Spring Boot e Spring Security. O objetivo é permitir a autenticação de usuários, diferenciando entre usuários comuns e administradores, e garantindo o acesso apropriado às páginas da aplicação.
 
 ## Estrutura do Projeto
 
-```
-SecureLoginPUC
+```text
+📁 SecureLoginPUC
 │
-├── src
-│   └── main
-│       ├── java
-│       │   └── com.example.SecureLoginPUC
-│       │       ├── application
+├── 📁 src
+│   └── 📁 main
+│       │
+│       ├── ☕ java
+│       │   └── 📦 com.example.SecureLoginPUC
+│       │       │
+│       │       ├── 🚀 application
 │       │       │   └── SecureLoginPUCApplication.java
-│       │       ├── config
+│       │       │       └── Classe principal da aplicação Spring Boot
+│       │       │
+│       │       ├── 🔐 config
 │       │       │   ├── SecurityConfig.java
-│       │       │   └── UserConfig.java
-│       │       └── controller
-│       │           └── SecureLoginPUCController.java
-│       └── resources
-│           ├── application.properties
-│           ├── static
-│           │   ├── css
+│       │       │   │   └── Configurações do Spring Security
+│       │       │   │
+│       │       │   ├── UserConfig.java
+│       │       │   │   └── Configuração dos usuários e chaves do reCAPTCHA
+│       │       │   │
+│       │       │   └── RecaptchaFilter.java
+│       │       │       └── Filtro responsável pela validação do reCAPTCHA
+│       │       │
+│       │       ├── 🎮 controller
+│       │       │   └── SecureLoginController.java
+│       │       │       └── Controladores e rotas da aplicação
+│       │       │
+│       │       ├── ⚠️ exception
+│       │       │   ├── GlobalExceptionHandler.java
+│       │       │   │   └── Tratamento global de exceções
+│       │       │   │
+│       │       │   └── SendEmailException.java
+│       │       │       └── Exceção relacionada ao envio de e-mails
+│       │       │
+│       │       └── ⚙️ service
+│       │           ├── SendEmailService.java
+│       │           │   └── Serviço responsável pelo envio de e-mails
+│       │           │
+│       │           ├── UserService.java
+│       │           │   └── Serviço responsável pelo gerenciamento dos usuários
+│       │           │
+│       │           ├── PasswordRecoveryService.java
+│       │           │   └── Serviço responsável pela recuperação de senha
+│       │           │
+│       │           └── RecaptchaService.java
+│       │               └── Serviço responsável pela validação do Google reCAPTCHA
+│       │
+│       └── 📁 resources
+│           │
+│           ├── ⚙️ application.properties
+│           │   └── Configurações da aplicação, e-mail e reCAPTCHA
+│           │
+│           ├── 🎨 static
+│           │   │
+│           │   ├── 🎨 css
+│           │   │   ├── admin.css
+│           │   │   ├── error.css
+│           │   │   ├── home.css
 │           │   │   ├── login.css
+│           │   │   ├── recoverpassword.css
 │           │   │   ├── register.css
-│           │   │   └── style.css
-│           │   └── images
-│           │       └── logo-puc-minas.png
-│           └── templates
+│           │   │   └── resetpassword.css
+│           │   │       └── Arquivos de estilização das páginas
+│           │   │
+│           │   └── 🖼️ images
+│           │       └── pucminas-logo.png
+│           │           └── Imagens utilizadas pela aplicação
+│           │
+│           └── 🌐 templates
 │               ├── admin.html
+│               │   └── Página da área administrativa
+│               │
 │               ├── error.html
+│               │   └── Página apresentada quando ocorre um erro
+│               │
 │               ├── home.html
+│               │   └── Página inicial após autenticação
+│               │
 │               ├── login.html
+│               │   └── Página de login com Google reCAPTCHA
+│               │
 │               ├── recoverpassword.html
+│               │   └── Página de recuperação de senha
+│               │
+│               ├── resetpassword.html
+│               │   └── Página para redefinição da senha
+│               │
 │               └── register.html
-
+│                   └── Página de cadastro de usuários
+│
+└── 📄 pom.xml
+    └── Dependências e configurações do Maven
 ```
 
 ## Configuração do application.properties
 
 ```properties
-spring.application.name=SecureLoginPUC
-app.user.username=leo
+spring.application.name=TelaLogin
+app.user.username= seu email
 app.user.password=4321
+app.user.name=leo
 app.admin.username=admin
 app.admin.password=1234
+app.admin.name=Administrador
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username= Seu email
+# https://myaccount.google.com/apppasswords
+# sua senha de app aqui (É necessário ativar a autenticação de dois fatores antes no Gmail)
+spring.mail.password= Sua senha
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+recaptcha.site-key=6LeEwsItAAAAAB4wX5NCt_c72PDo2Vpvds0BOO5Y
+recaptcha.secret-key=6LeEwsItAAAAAKbWz-EEfZn1BxfoanhCeMPTvB_e
 ```
 
 ## Dependências
@@ -68,6 +142,13 @@ app.admin.password=1234
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-thymeleaf</artifactId>
 </dependency>
+
+<!-- Dependência do Spring Mail para o envio de email -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
+
 ```
 
 # Thymeleaf
@@ -109,17 +190,21 @@ A interface gráfica permite ao usuário inserir seus dados de login e, após a 
 
 ### Captura de Tela
 
-- **Login**: A página de login possui campos para inserir o nome de usuário e a senha. Abaixo do formulário de login, existem links para os usuários que ainda não possuem cadastro, direcionando-os para a página de registro, e para aqueles que esqueceram a senha, levando-os à página de recuperação de senha.
+- **Login**: A página de login possui campos para inserir o nome de usuário e a senha. proporcionando uma identificação visual clara da instituição. Abaixo do formulário de login, existem links para os usuários que ainda não possuem cadastro, direcionando-os para a página de registro, e para aqueles que esqueceram a senha, levando-os à página de recuperação de senha.
 
-![alt text](<Captura de Tela 2026-09-14 às 21.28.58.png>)
+- **Register**: A página de registro permite que novos usuários criem uma conta na plataforma. Ela inclui campos para inserir **nome completo, e-mail, CPF, RG, endereço, instituição e senha**, garantindo que todas as informações necessárias para cadastro sejam coletadas. A lateral exibe o **logo da PUC Minas**, mantendo a identidade visual da instituição. Abaixo do formulário, há um link para os usuários que já possuem conta, direcionando-os de volta para a página de login.
 
+| <img src="Captura de Tela 2026-09-14 às 21.28.58.png" alt="Login" width="1000"/> |
 |:----------------------------------------------------:|
 |                        Login                         |
 
-![alt text](<Captura de Tela 2026-09-14 às 21.29.26.png>)
+| <img src="[https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC_3/imgs/Register_v2.png"](https://github.com/leonardoMartins-Dev/TelaLogin-Atividade-2-/blob/main/Captura%20de%20Tela%202026-09-14%20%C3%A0s%2021.29.26.png)" alt="Register" width="1000"/> |
+|:-------------------------------------------------------:|
+|                        Register                         |
 
-|:----------------------------------------------------------:|
-|                          Registro                          |
+| <img src="https://joaopauloaramuni.github.io/java-imgs/SecureLoginPUC_3/imgs/Email.png" alt="Recover" width="1000"/> |
+|:---------------------------------------------------------------:|
+|                        Recover Password                         |
 
 ## Métodos da Classe SecurityConfig
 
@@ -145,14 +230,13 @@ http://localhost:8080/login?logout=true
 
 http://localhost:8080/home
 
-http://localhost:8080/error
-
 http://localhost:8080/admin
+
+http://localhost:8080/error
 
 http://localhost:8080/register
 
 http://localhost:8080/recoverpassword
-
 
 # Como rodar
 cd TelaLogin           
